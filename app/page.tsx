@@ -2,7 +2,6 @@ import Card from "@/components/Card/Card";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import TrustedPartners from "@/components/TrustedPartners/TrustedPartners";
 import { CardsData } from "@/constants/cards-data";
-import Image from "next/image";
 
 export default function Home() {
   return (

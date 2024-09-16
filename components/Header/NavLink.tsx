@@ -20,7 +20,6 @@ const NavLink = ({
   href,
   children,
   dropdownSections,
-  isMenuOpen,
 }: NavLinkProps) => {
   const hasDropdown = dropdownSections && dropdownSections.length > 0;
   const [showDropdown, setShowDropdown] = useState(false);

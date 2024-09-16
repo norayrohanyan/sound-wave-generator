@@ -27,7 +27,7 @@ const Card = ({
       <div className={`order-first relative w-[264px] h-[156px] lg:w-[1080px] lg:h-[340px] ${isRight && "lg:order-last"}`}>
         <Image
           src={image}
-          alt="Picture of the author"
+          alt={alt}
           // sizes="300px"
           fill
           sizes="(100vw - 48px)"

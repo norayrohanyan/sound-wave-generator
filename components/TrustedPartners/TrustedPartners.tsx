@@ -21,7 +21,7 @@ const TrustedPartners = () => {
       </div>
 
       <div className="flex items-center justify-center flex-wrap gap-12 lg:gap-8">
-        {partners.map((partner, index) => (
+        {partners.map((partner) => (
           <div
             key={partner.alt}
             className="relative w-36 h-6"
