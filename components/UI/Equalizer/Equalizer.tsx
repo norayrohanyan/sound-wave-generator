@@ -14,7 +14,7 @@ const Equalizer = () => {
 
         const newBars = Array.from(
           { length: numberOfBars },
-          () => Math.floor(Math.random() * 150) + 50 // Random height between 50 and 200
+          () => Math.floor(Math.random() * 150) + 50
         );
         // const newBars = new Array(numberOfBars).fill(
         //   Math.floor(Math.random() * 150) + 50

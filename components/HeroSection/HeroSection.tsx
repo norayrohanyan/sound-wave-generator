@@ -21,7 +21,6 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Image Section */}
       <div className="relative w-full max-w-[300px] lg:mt-0 mt-12 sm:max-w-[400px] md:max-w-[500px] lg:max-w-[782px]">
         <Equalizer />
         <Image

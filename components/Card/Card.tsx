@@ -15,7 +15,7 @@ const Card = ({
   isRight = true,
 }: CardProps) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 lg:gap-14 bg-gradient-secondary rounded-[30px] max-w-[328px] mx-auto px-8 py-5 lg:mx-auto lg:flex-row lg:max-w-[1238px] lg:px-14 lg:py-8">
+    <div className="flex flex-col items-center justify-center gap-4 lg:gap-14 bg-gradient-secondary rounded-[30px] w-full mx-auto px-8 py-5 lg:mx-auto lg:flex-row max-w-[1238px] lg:px-14 lg:py-8">
       <div className={`text-textMain w-full  ${!isRight && "lg:order-last"}`}>
         <h2 className="text-lg lg:text-[32px] font-bold lg:leading-[39px]">
           {title}
