@@ -145,7 +145,7 @@ const Header = () => {
         <div
           className={`lg:hidden fixed top-full bottom-0 right-0 bg-white py-4 overflow-y-auto overflow-x-hidden h-[calc(100vh-4rem)] max-w-[300px] w-full  transition-all duration-500 ease-in-out transform ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          } dropdown-content`}
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {/* Mobile Menu Links */}
