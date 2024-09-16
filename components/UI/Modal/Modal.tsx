@@ -71,7 +71,7 @@ const Dropdown = ({
                 >
                   <Link
                     href={item.href}
-                    className="text-sm hover:text-blue-500 transition-all duration-300 transform hover:translate-x-1"
+                    className="text-sm lg:hover:text-blue-500 transition-all duration-300 transform lg:hover:translate-x-1"
                     style={{ display: "-webkit-box", WebkitLineClamp: "1" }}
                   >
                     {item.label}
@@ -83,7 +83,7 @@ const Dropdown = ({
         ))}
       </div>
 
-      <div className="border-t border-t-gray-300 w-full pt-5 pb-6 lg:p-0 lg:border-none text-center mt-6 lg:w-max mx-auto [&_img]:hover:translate-x-1">
+      <div className="border-t border-t-gray-300 w-full pt-5 pb-6 lg:p-0 lg:border-none text-center mt-6 lg:w-max mx-auto lg:[&_img]:hover:translate-x-1">
         <Link
           href="/#"
           className="text-[#3271E6] text-sm leading-[17px] font-medium flex items-center justify-center gap-3"

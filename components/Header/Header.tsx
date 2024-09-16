@@ -15,9 +15,25 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const handleTouchMove = (e: TouchEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (isMenuOpen && target.closest(".dropdown-content")) {
+        return;
+      }
+
+      if (isMenuOpen) {
+        e.preventDefault();
+      }
+    };
+
     document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
     return () => {
       document.body.style.overflow = "auto";
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, [isMenuOpen]);
 
@@ -127,10 +143,11 @@ const Header = () => {
 
         {/* {isMenuOpen && ( */}
         <div
-  className={`lg:hidden fixed top-full bottom-0 right-0 bg-white py-4 overflow-y-auto overflow-x-hidden h-[calc(100vh-4rem)] max-w-[300px] w-full  transition-all duration-500 ease-in-out transform ${
-    isMenuOpen ? "translate-x-0" : "translate-x-full"
-  }`}
->
+          className={`lg:hidden fixed top-full bottom-0 right-0 bg-white py-4 overflow-y-auto overflow-x-hidden h-[calc(100vh-4rem)] max-w-[300px] w-full  transition-all duration-500 ease-in-out transform ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {/* Mobile Menu Links */}
           <nav className="flex flex-col w-full">
             <div className=" border-b-gray-300 border-b p-5">
