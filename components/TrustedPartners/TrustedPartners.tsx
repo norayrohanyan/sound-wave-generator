@@ -1,4 +1,3 @@
-import { partners } from "@/constants/trusted-partners";
 import Image from "next/image";
 
 const TrustedPartners = () => {
