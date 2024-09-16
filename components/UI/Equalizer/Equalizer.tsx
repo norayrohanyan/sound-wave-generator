@@ -9,7 +9,7 @@ const Equalizer = () => {
     const updateBars = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        const barWidth = 10; 
+        const barWidth = 10;
         const numberOfBars = Math.floor(containerWidth / barWidth);
 
         const newBars = Array.from(

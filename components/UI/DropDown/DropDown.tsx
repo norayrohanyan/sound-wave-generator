@@ -19,7 +19,7 @@ const Dropdown = ({
 }: DropdownProps) => {
   return (
     <div
-      className={`fixed overflow-y-scroll h-screen top-0 right-0 lg:p-6 lg:absolute lg:right-auto left-0 lg:top-full bg-white shadow-[0px_2px_12px_0px_#0052E01F] lg:rounded-2xl lg:opacity-0 lg:invisible transition-all lg:transition-opacity duration-300 lg:group-hover:opacity-100 lg:group-hover:visible ${
+      className={`fixed overflow-y-scroll h-[calc(100vh-64px)] lg:h-auto top-0 right-0 lg:p-6 lg:absolute lg:right-auto left-0 lg:top-full bg-white shadow-[0px_2px_12px_0px_#0052E01F] lg:rounded-2xl lg:opacity-0 lg:invisible transition-all lg:transition-opacity duration-300 lg:group-hover:opacity-100 lg:group-hover:visible ${
         isMenuOpen
           ? "translate-x-0 lg:translate-x-auto"
           : "translate-x-full lg:translate-x-0"

@@ -10,6 +10,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+// Separate Metadata
 export const metadata: Metadata = {
   title: "Sound Wave Generator | Renderforest",
   description:
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
     title: "Sound Wave Generator | Renderforest",
     description:
       "Create and customize sound waves with Renderforest’s advanced tools.",
-    url: "https://www.renderforest.com/sound-wave-generator",
+    url: "https://sound-wave-generator-tau.vercel.app/",
     images: [
       {
-        url: "https://www.renderforest.com/images/og-image.png",
+        url: "https://sound-wave-generator-tau.vercel.app/images/hero-image.png",
         width: 800,
-        height: 600,
+        height: 400,
         alt: "Sound Wave Generator",
       },
     ],
@@ -35,6 +36,14 @@ export const metadata: Metadata = {
     title: "Sound Wave Generator | Renderforest",
     description:
       "Create and customize sound waves with Renderforest’s advanced tools.",
+    images: [
+      {
+        url: "https://sound-wave-generator-tau.vercel.app/images/hero-image.png",
+        width: 800,
+        height: 400,
+        alt: "Sound Wave Generator",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -48,9 +57,22 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
+  keywords: [
+    "Sound Wave Generator",
+    "Renderforest",
+    "Audio Visualizer",
+    "Sound Waves",
+  ],
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+export const themeColor = "#6272FF";
 
 export default function RootLayout({
   children,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Dropdown from "../UI/Modal/Modal";
+import Dropdown from "../UI/DropDown/DropDown";
 import { useState } from "react";
 
 interface DropdownSection {
@@ -16,11 +16,7 @@ interface NavLinkProps {
   isMenuOpen?: boolean;
 }
 
-const NavLink = ({
-  href,
-  children,
-  dropdownSections,
-}: NavLinkProps) => {
+const NavLink = ({ href, children, dropdownSections }: NavLinkProps) => {
   const hasDropdown = dropdownSections && dropdownSections.length > 0;
   const [showDropdown, setShowDropdown] = useState(false);
   const toggleDropdown = () => {
@@ -28,9 +24,8 @@ const NavLink = ({
   };
   return (
     <>
-       {/* Desktop Navigation (lg and above) */}
-       <div className="hidden lg:relative lg:block group h-full">
-       <Link
+      <div className="hidden lg:relative lg:block group h-full">
+        <Link
           href={href}
           className="flex items-center justify-between cursor-pointer h-full"
         >
@@ -47,22 +42,8 @@ const NavLink = ({
             />
           )}
         </Link>
-        {hasDropdown && (
-          // <div className="absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded-lg transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-            <Dropdown dropdownSections={dropdownSections} />
-          // {/* </div> */}
-        )}
+        {hasDropdown && <Dropdown dropdownSections={dropdownSections} />}
       </div>
-      {/* Tablet  */}
-      {/* <div className="hidden md:block lg:hidden group h-full">
-        <Link
-          href={href}
-          className="flex items-center justify-between cursor-pointer h-full"
-        >
-          {children}
-          
-        </Link>
-      </div> */}
 
       <ul className="md:block lg:hidden group h-full">
         <li className="h-full" onClick={toggleDropdown}>
@@ -83,7 +64,6 @@ const NavLink = ({
               />
             )}
           </Link>
-
         </li>
         {hasDropdown && (
           <Dropdown

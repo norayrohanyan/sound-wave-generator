@@ -43,7 +43,7 @@ const Header = () => {
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-20 pointer-events-none"></div>
       )}
       <header className="glass-effect fixed h-16 top-0 right-0 left-0 bg-white text-sm text-textHeader leading-4 font-bold lg:shadow-none shadow-[0px_4px_4px_0px_#1B55D80F] z-50">
-        <div className="flex justify-between items-center max-w-[1635px] h-full mx-auto p-5">
+        <div className="flex justify-between items-center max-w-[1635px] h-full mx-auto">
           {/* Logo */}
           <div className="hidden xl:flex items-center mr-10">
             <Link href="/">
@@ -141,9 +141,8 @@ const Header = () => {
           </div>
         </div>
 
-        {/* {isMenuOpen && ( */}
         <div
-          className={`lg:hidden fixed top-full bottom-0 right-0 bg-white py-4 overflow-hidden overflow-x-hidden h-[calc(100vh-4rem)] max-w-[300px] w-full  transition-all duration-500 ease-in-out transform ${
+          className={`lg:hidden fixed top-full bottom-0 right-0 bg-white py-4 overflow-hidden h-screen max-w-[300px] w-full  transition-all duration-500 ease-in-out transform ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } dropdown-content`}
           style={{ WebkitOverflowScrolling: "touch" }}
@@ -191,7 +190,6 @@ const Header = () => {
             />
           </div>
         </div>
-        {/* )} */}
       </header>
     </>
   );

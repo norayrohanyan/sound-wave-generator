@@ -24,7 +24,11 @@ const Card = ({
           {description}
         </p>
       </div>
-      <div className={`order-first relative w-[264px] h-[156px] lg:w-[1080px] lg:h-[340px] ${isRight && "lg:order-last"}`}>
+      <div
+        className={`order-first relative w-[264px] h-[156px] lg:w-[1080px] lg:h-[340px] ${
+          isRight && "lg:order-last"
+        }`}
+      >
         <Image
           src={image}
           alt={alt}

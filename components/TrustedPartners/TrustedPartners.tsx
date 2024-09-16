@@ -18,11 +18,41 @@ const TrustedPartners = () => {
       </div>
 
       <div className="flex items-center justify-center flex-wrap gap-12 lg:gap-8">
-        <Image src="/images/stanford.png" alt="trusted partners" width={100} height={24} className="lg:order-1"/>
-        <Image src="/images/meta.png" alt="trusted partners" width={90} height={18} className="lg:order-2"/>
-        <Image src="/images/booking.png" alt="trusted partners" width={119} height={20}  className="lg:order-3"/>
-        <Image src="/images/nike.png" alt="trusted partners" width={57} height={20} className="order-5 lg:order-4"/>
-        <Image src="/images/hootsuite.png" alt="trusted partners" width={110} height={24} className="order-4 lg:order-5"/>
+        <Image
+          src="/images/stanford.png"
+          alt="trusted partners"
+          width={100}
+          height={24}
+          className="lg:order-1"
+        />
+        <Image
+          src="/images/meta.png"
+          alt="trusted partners"
+          width={90}
+          height={18}
+          className="lg:order-2"
+        />
+        <Image
+          src="/images/booking.png"
+          alt="trusted partners"
+          width={119}
+          height={20}
+          className="lg:order-3"
+        />
+        <Image
+          src="/images/nike.png"
+          alt="trusted partners"
+          width={57}
+          height={20}
+          className="order-5 lg:order-4"
+        />
+        <Image
+          src="/images/hootsuite.png"
+          alt="trusted partners"
+          width={110}
+          height={24}
+          className="order-4 lg:order-5"
+        />
       </div>
     </div>
   );
