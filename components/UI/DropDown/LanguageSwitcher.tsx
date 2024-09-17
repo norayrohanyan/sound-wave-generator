@@ -1,5 +1,3 @@
-"use client";
-
 import { locales } from "@/constants/locales";
 import { useLocale } from "next-intl";
 import Image from "next/image";
