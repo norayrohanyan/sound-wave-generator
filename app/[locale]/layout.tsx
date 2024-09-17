@@ -86,9 +86,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={fontClassName}>
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <body className="overflow-x-hidden">
+        <body>
           <Header />
-          <main className="mb-24 mt-8 min-h-screen lg:mt-auto">{children}</main>
+          <main className="mb-24 mt-8 min-h-screen overflow-x-hidden lg:mt-auto">{children}</main>
           <Footer />
         </body>
       </NextIntlClientProvider>
