@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../UI/DropDown/LanguageSwitcher";
 
 const Header = () => {
-  const navLinks= useNavLinks();
+  const navLinks = useNavLinks();
   const t = useTranslations("nav");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,12 +44,12 @@ const Header = () => {
   return (
     <>
       {isMenuOpen && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-20 pointer-events-none"></div>
+        <div className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-20 bg-black opacity-50"></div>
       )}
-      <header className="glass-effect fixed h-16 top-0 right-0 left-0 bg-white text-sm text-textHeader leading-4 font-bold lg:shadow-none shadow-[0px_4px_4px_0px_#1B55D80F] z-50">
-        <div className="flex justify-between items-center max-w-[1635px] h-full mx-auto px-6">
+      <header className="glass-effect fixed left-0 right-0 top-0 z-50 h-16 bg-white text-sm font-bold leading-4 text-textHeader shadow-[0px_4px_4px_0px_#1B55D80F] lg:shadow-none">
+        <div className="mx-auto flex h-full max-w-[1635px] items-center justify-between px-6">
           {/* Logo */}
-          <div className="hidden xl:flex items-center mr-10">
+          <div className="mr-10 hidden items-center xl:flex">
             <Link href="/">
               <Image
                 src="/images/logo.png"
@@ -59,7 +59,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="xl:hidden mr-10">
+          <div className="mr-10 xl:hidden">
             <Link href="/">
               <Image
                 src="/images/logo-mobile.png"
@@ -71,7 +71,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4 lg:flex-1 h-full">
+          <nav className="hidden h-full items-center gap-4 lg:flex lg:flex-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.label}
@@ -84,31 +84,19 @@ const Header = () => {
           </nav>
 
           {/* Right Side Links and Buttons for Desktop */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden h-full items-center gap-6 lg:flex">
             <Link href="#">{t("pricing")}</Link>
-            <div className="flex items-center">
+            <div className="group flex items-center">
               <NavLink href="#">{t("learn")}</NavLink>
               <Image
                 src="/assets/arrow-down.svg"
                 alt="Dropdown arrow"
                 width={24}
                 height={24}
-                className="ml-1 cursor-pointer"
+                className="ml-1 duration-300 group-hover:rotate-180"
               />
             </div>
-            <div className="flex items-center">
-              <div className="">
-                {/* <Image
-                  src="/assets/flag.svg"
-                  alt="Flag"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer"
-                /> */}
-                <LanguageSwitcher />
-              </div>
-             
-            </div>
+            <LanguageSwitcher />
             <div className="flex gap-4">
               <Button
                 title={t("signIn")}
@@ -120,7 +108,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Hamburger Icon */}
-          <div className="lg:hidden flex items-center">
+          <div className="flex items-center lg:hidden">
             <button
               onClick={toggleMenu}
               aria-label="Open Menu"
@@ -147,40 +135,30 @@ const Header = () => {
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {/* Mobile Menu Links */}
-          <nav className="flex flex-col w-full">
-            <div className=" border-b-gray-300 border-b p-5">
+          <nav className="flex w-full flex-col">
+            <div className="border-b border-b-gray-300 p-5">
               <NavLink href="#" dropdownSections={navLinks[0].dropdownItems}>
                 {t("create")}
               </NavLink>
             </div>
-            <div className=" border-b-gray-300 border-b p-5">
+            <div className="border-b border-b-gray-300 p-5">
               <NavLink href="#" dropdownSections={navLinks[1].dropdownItems}>
                 {t("exploreAI")}
               </NavLink>
             </div>
-            <div className=" border-b-gray-300 border-b p-5">
+            <div className="border-b border-b-gray-300 p-5">
               <NavLink href="#">{t("pricing")}</NavLink>
             </div>
-            <div className=" border-b-gray-300 border-b p-5">
+            <div className="border-b border-b-gray-300 p-5">
               <NavLink href="#" dropdownSections={navLinks[2].dropdownItems}>
                 {t("learn")}
               </NavLink>
             </div>
 
-            <div className="flex items-center gap-2 border-b-gray-300 border-b p-5">
-              <div className="border rounded-full border-[#C1C9E0] size-7 flex items-center justify-center">
-                <Image
-                  src="/assets/flag.svg"
-                  alt="Flag"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <span>{t("language")}</span>
-            </div>
+            <LanguageSwitcher />
           </nav>
 
-          <div className="mt-8 flex flex-col gap-4 px-5">
+          <div className="mt-8 flex flex-col gap-4 px-5 transition-all duration-300">
             <Button title={t("tryForFree")} className="px-[22px] py-[10px]" />
             <Button
               title={t("signIn")}

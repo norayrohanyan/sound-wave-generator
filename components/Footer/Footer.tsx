@@ -5,8 +5,8 @@ import Image from "next/image";
 const Footer = () => {
   const t = useTranslations("footer");
   return (
-    <footer className="relative bg-[#FAF8F4] py-6 text-textMain before:content-[''] before:absolute before:w-full before:top-10 before:h-[2px] before:bg-gray-200">
-      <div className="mx-auto flex flex-col gap-5 justify-between items-center max-w-[1256px] mt-10 lg:flex-row">
+    <footer className="relative bg-[#FAF8F4] py-6 text-textMain before:absolute before:top-10 before:h-[2px] before:w-full before:bg-gray-200 before:content-['']">
+      <div className="mx-auto mt-10 flex max-w-[1256px] flex-col items-center justify-between gap-5 lg:flex-row">
         <div className="">
           <Image
             src="/images/logo.png"

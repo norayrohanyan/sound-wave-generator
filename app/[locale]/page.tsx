@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 export default function Home() {
   const t = useTranslations("mainFeatures.cards");
   return (
-    <div className="space-y-24 lg:space-y-32 lg:mx-8 mt-[88px]">
+    <div className="mt-[88px] space-y-24 lg:mx-8 lg:space-y-32">
       <HeroSection />
       <TrustedPartners />
       <CardWrapper>

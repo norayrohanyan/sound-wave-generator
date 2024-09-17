@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { getMessages } from "next-intl/server";
 import { Montserrat } from "next/font/google";
+import { Noto_Sans_Armenian } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -12,7 +13,12 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-// Separate Metadata
+const notoSansArmenian = Noto_Sans_Armenian({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Sound Wave Generator | Renderforest",
   description:
@@ -47,17 +53,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -86,12 +81,14 @@ export default async function LocaleLayout({
 }) {
   const messages = await getMessages();
 
+  const fontClassName = locale === "am" ? notoSansArmenian.className : montserrat.className;
+
   return (
-    <html lang={locale} className={`${montserrat.className}`}>
+    <html lang={locale} className={fontClassName}>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <body className="overflow-x-hidden">
           <Header />
-          <main className="min-h-screen mt-8 lg:mt-auto mb-24">{children}</main>
+          <main className="mb-24 mt-8 min-h-screen lg:mt-auto">{children}</main>
           <Footer />
         </body>
       </NextIntlClientProvider>

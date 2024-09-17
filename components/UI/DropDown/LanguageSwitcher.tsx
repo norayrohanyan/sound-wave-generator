@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import { locales } from "@/constants/locales";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -12,56 +13,112 @@ export default function LanguageSwitcher() {
   const localActive = useLocale();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  const locales = [
-    { code: "en", src: "/assets/en-flag.svg", alt: "English" },
-    { code: "am", src: "assets/am-flag.svg", alt: "Armenian" },
-    { code: "ru", src: "assets/ru-flag.svg", alt: "Russian" },
-  ];
-
   const onLocaleChange = (nextLocale: string) => {
-    setDropdownOpen(false); // Close the dropdown
+    setDropdownOpen(false);
     startTransition(() => {
       router.replace(`/${nextLocale}/${pathName.split("/")[2] || ""}`);
     });
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex h-full flex-col items-start">
+      {/* Button for mobile*/}
       <button
         onClick={() => setDropdownOpen(!isDropdownOpen)}
-        className="flex items-center p-2 transition-transform transform focus:outline-none"
+        className="relative flex w-full transform items-center justify-between border-b border-gray-300 p-4 transition-transform focus:outline-none lg:hidden"
         disabled={isPending}
       >
+        <div className="flex items-center gap-2">
+          <Image
+            className="rounded-full"
+            src={
+              locales.find((locale) => locale.code === localActive)?.src || ""
+            }
+            alt="Active Locale"
+            width={30}
+            height={30}
+          />
+          <span>
+            {locales.find((locale) => locale.code === localActive)?.alt}
+          </span>
+        </div>
         <Image
-          className="rounded-full"
-          src={locales.find(locale => locale.code === localActive)?.src || ""}
-          alt="Active Locale"
-          width={46}
-          height={46}
+          src="/assets/arrow-down.svg"
+          alt="Dropdown arrow"
+          width={24}
+          height={24}
+          className={`transform transition-transform ${
+            isDropdownOpen ? "rotate-180" : "rotate-0"
+          }`}
         />
       </button>
 
-      <div
-        className={`absolute mt-2 border right-0 w-16 flex flex-col justify-center items-center border-gray-300 rounded-md shadow-lg transition-all duration-300 ease-in-out transform ${isDropdownOpen ? 'opacity-100 block scale-100' : 'opacity-0 hidden scale-95'}`}
-      >
-        {locales
-          .filter(locale => locale.code !== localActive) // Exclude the active locale from the dropdown
-          .map(locale => (
-            <button
-              key={locale.code}
-              onClick={() => onLocaleChange(locale.code)}
-              className="flex w-full items-center justify-center p-2 hover:bg-gray-100 transition-colors duration-200"
-              disabled={isPending}
-            >
-              <Image
-                className="inline-block rounded-full"
-                src={locale.src}
-                alt={locale.alt}
-                width={30}
-                height={30}
-              />
-            </button>
-          ))}
+      {/* Dropdown for mobile*/}
+      {isDropdownOpen && (
+        <div className="w-full border-t border-gray-200 bg-white shadow-md lg:hidden lg:rounded-md">
+          {locales
+            .filter((locale) => locale.code !== localActive)
+            .map((locale) => (
+              <button
+                key={locale.code}
+                onClick={() => onLocaleChange(locale.code)}
+                className="flex w-full items-center gap-2 border-b border-gray-300 p-4"
+                disabled={isPending}
+              >
+                <Image
+                  className="rounded-full"
+                  src={locale.src}
+                  alt={locale.alt}
+                  width={30}
+                  height={30}
+                />
+                <span>{locale.alt}</span>
+              </button>
+            ))}
+        </div>
+      )}
+
+      {/* Hover effect for larger screens */}
+      <div className="group hidden h-full items-center lg:flex">
+        <div className="w-7 rounded-full border border-[#C1C9E0] p-[1px]">
+          <Image
+            className="rounded-full"
+            src={
+              locales.find((locale) => locale.code === localActive)?.src || ""
+            }
+            alt="Active Locale"
+            width={46}
+            height={46}
+          />
+        </div>
+        <Image
+          src="/assets/arrow-down.svg"
+          alt="Dropdown arrow"
+          width={24}
+          height={24}
+          className="ml-1 duration-300 group-hover:rotate-180"
+        />
+        <div className="absolute left-0 w-max border bg-white opacity-0 shadow-[0px_2px_12px_0px_#0052E01F] transition-all duration-300 group-hover:opacity-100 lg:top-full lg:rounded-2xl">
+          {locales
+            .filter((locale) => locale.code !== localActive)
+            .map((locale) => (
+              <button
+                key={locale.code}
+                onClick={() => onLocaleChange(locale.code)}
+                className="flex w-full items-center justify-start gap-2 p-4"
+                disabled={isPending}
+              >
+                <Image
+                  className="inline-block rounded-full"
+                  src={locale.src}
+                  alt={locale.alt}
+                  width={30}
+                  height={30}
+                />
+                <span className="ml-2">{locale.alt}</span>
+              </button>
+            ))}
+        </div>
       </div>
     </div>
   );

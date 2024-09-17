@@ -24,10 +24,10 @@ const NavLink = ({ href, children, dropdownSections }: NavLinkProps) => {
   };
   return (
     <>
-      <div className="hidden lg:relative lg:block group h-full">
+      <div className="group hidden h-full lg:relative lg:block">
         <Link
           href={href}
-          className="flex items-center justify-between cursor-pointer h-full"
+          className="flex h-full cursor-pointer items-center justify-between"
         >
           {children}
           {hasDropdown && (
@@ -45,11 +45,11 @@ const NavLink = ({ href, children, dropdownSections }: NavLinkProps) => {
         {hasDropdown && <Dropdown dropdownSections={dropdownSections} />}
       </div>
 
-      <ul className="md:block lg:hidden group h-full">
+      <ul className="group h-full md:block lg:hidden">
         <li className="h-full" onClick={toggleDropdown}>
           <Link
             href={href}
-            className="flex items-center justify-between cursor-pointer h-full"
+            className="flex h-full cursor-pointer items-center justify-between"
           >
             {children}
             {hasDropdown && (

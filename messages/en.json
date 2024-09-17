@@ -42,7 +42,16 @@
     "button": "Animate Sound Waves"
   },
   "trustedPartners": {
-    "title": "Trusted by 25M+ users and 100k+ high-end companies"
+    "desktopParts": {
+      "part1": "Sound Wave Generator",
+      "part2": "Trusted by Our",
+      "part3": "Partners"
+    },
+    "mobileParts": {
+      "part1": "Trusted by",
+      "part2": "users and",
+      "part3": "high-end companies"
+    }
   },
   "mainFeatures": {
     "title": "Main Features of Renderforest’s Sound Wave Visualizer",
