@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/Header/Header";
-import "./globals.css";
 import Footer from "@/components/Footer/Footer";
+import { getMessages } from "next-intl/server";
+import { Montserrat } from "next/font/google";
+import type { Metadata } from "next";
+import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -70,22 +72,29 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
-export const themeColor = "#6272FF";
-
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params: { locale },
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale: string };
+}) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${montserrat.className}`}>
-      <body className="overflow-x-hidden">
-        <Header />
-        <main className="min-h-screen mt-8 lg:mt-auto mb-24">{children}</main>
-        <Footer />
-      </body>
+    <html lang={locale} className={`${montserrat.className}`}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <body className="overflow-x-hidden">
+          <Header />
+          <main className="min-h-screen mt-8 lg:mt-auto mb-24">{children}</main>
+          <Footer />
+        </body>
+      </NextIntlClientProvider>
     </html>
   );
 }

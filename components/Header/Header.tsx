@@ -4,10 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import NavLink from "./NavLink";
-import { navLinks } from "../../constants/navlinks";
+import { useNavLinks } from "@/constants/navlinks";
 import Button from "../UI/Button/Button";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "../UI/DropDown/LanguageSwitcher";
 
 const Header = () => {
+  const navLinks= useNavLinks();
+  const t = useTranslations("nav");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -43,7 +47,7 @@ const Header = () => {
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-20 pointer-events-none"></div>
       )}
       <header className="glass-effect fixed h-16 top-0 right-0 left-0 bg-white text-sm text-textHeader leading-4 font-bold lg:shadow-none shadow-[0px_4px_4px_0px_#1B55D80F] z-50">
-        <div className="flex justify-between items-center max-w-[1635px] h-full mx-auto">
+        <div className="flex justify-between items-center max-w-[1635px] h-full mx-auto px-6">
           {/* Logo */}
           <div className="hidden xl:flex items-center mr-10">
             <Link href="/">
@@ -81,9 +85,9 @@ const Header = () => {
 
           {/* Right Side Links and Buttons for Desktop */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link href="#">Pricing</Link>
+            <Link href="#">{t("pricing")}</Link>
             <div className="flex items-center">
-              <NavLink href="#">Learn</NavLink>
+              <NavLink href="#">{t("learn")}</NavLink>
               <Image
                 src="/assets/arrow-down.svg"
                 alt="Dropdown arrow"
@@ -93,30 +97,25 @@ const Header = () => {
               />
             </div>
             <div className="flex items-center">
-              <div className="border rounded-full border-[#C1C9E0] size-7 flex items-center justify-center">
-                <Image
+              <div className="">
+                {/* <Image
                   src="/assets/flag.svg"
                   alt="Flag"
                   width={24}
                   height={24}
                   className="cursor-pointer"
-                />
+                /> */}
+                <LanguageSwitcher />
               </div>
-              <Image
-                src="/assets/arrow-down.svg"
-                alt="Dropdown arrow"
-                width={24}
-                height={24}
-                className="ml-1 cursor-pointer"
-              />
+             
             </div>
             <div className="flex gap-4">
               <Button
-                title="Sign in"
+                title={t("signIn")}
                 colored={false}
                 className="px-[22px] py-[10px]"
               />
-              <Button title="Try for free" className="px-[22px] py-[10px]" />
+              <Button title={t("tryForFree")} className="px-[22px] py-[10px]" />
             </div>
           </div>
 
@@ -151,20 +150,20 @@ const Header = () => {
           <nav className="flex flex-col w-full">
             <div className=" border-b-gray-300 border-b p-5">
               <NavLink href="#" dropdownSections={navLinks[0].dropdownItems}>
-                Create
+                {t("create")}
               </NavLink>
             </div>
             <div className=" border-b-gray-300 border-b p-5">
               <NavLink href="#" dropdownSections={navLinks[1].dropdownItems}>
-                Explore AI
+                {t("exploreAI")}
               </NavLink>
             </div>
             <div className=" border-b-gray-300 border-b p-5">
-              <NavLink href="#">Pricing</NavLink>
+              <NavLink href="#">{t("pricing")}</NavLink>
             </div>
             <div className=" border-b-gray-300 border-b p-5">
               <NavLink href="#" dropdownSections={navLinks[2].dropdownItems}>
-                Learn
+                {t("learn")}
               </NavLink>
             </div>
 
@@ -177,14 +176,14 @@ const Header = () => {
                   height={24}
                 />
               </div>
-              <span>English</span>
+              <span>{t("language")}</span>
             </div>
           </nav>
 
           <div className="mt-8 flex flex-col gap-4 px-5">
-            <Button title="Try for free" className="px-[22px] py-[10px]" />
+            <Button title={t("tryForFree")} className="px-[22px] py-[10px]" />
             <Button
-              title="Sign in"
+              title={t("signIn")}
               colored={false}
               className="px-[22px] py-[10px]"
             />

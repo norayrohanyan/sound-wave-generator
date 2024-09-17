@@ -13,12 +13,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: 85%;
+  width: 82%;
   height: 56px;
   opacity: 50%;
   position: absolute;
   bottom: 95%;
-  left: 65%;
+  left: 64%;
   transform: translateX(-60%);
   /* overflow-y: hidden; */
 }
@@ -35,8 +35,14 @@
   100% {
     transform: scaleY(0.2);
   }
-  50% {
+  25% {
     transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(0.3);
+  }
+  75% {
+    transform: scaleY(0.4);
   }
 }
 

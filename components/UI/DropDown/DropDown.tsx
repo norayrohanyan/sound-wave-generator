@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface DropdownSection {
   title: string;
@@ -17,6 +18,7 @@ const Dropdown = ({
   isMenuOpen,
   handleClick,
 }: DropdownProps) => {
+  const t = useTranslations("nav");
   return (
     <div
       className={`fixed overflow-y-scroll h-[calc(100vh-64px)] lg:h-auto top-0 right-0 lg:p-6 lg:absolute lg:right-auto left-0 lg:top-full bg-white shadow-[0px_2px_12px_0px_#0052E01F] lg:rounded-2xl lg:opacity-0 lg:invisible transition-all lg:transition-opacity duration-300 lg:group-hover:opacity-100 lg:group-hover:visible ${
@@ -53,7 +55,7 @@ const Dropdown = ({
           />
         </svg>
         <span className="text-sm font-semibold text-textMain underline lg:no-underline lg:text-inherit lg:text-base lg:font-bold leading-[19.5px] lg:duration-300">
-          Create Video
+          {t("createVideo")}
         </span>
       </div>
 
@@ -88,7 +90,7 @@ const Dropdown = ({
           href="/#"
           className="text-[#3271E6] text-sm leading-[17px] font-medium flex items-center justify-center gap-3"
         >
-          Browse More
+          {t('browseMore')}
           <Image
             src="/assets/arrow-right.svg"
             alt="arrow right"

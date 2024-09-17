@@ -1,7 +1,9 @@
 import { footerIcons } from "@/constants/footer-icons";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const Footer = () => {
+  const t = useTranslations("footer");
   return (
     <footer className="relative bg-[#FAF8F4] py-6 text-textMain before:content-[''] before:absolute before:w-full before:top-10 before:h-[2px] before:bg-gray-200">
       <div className="mx-auto flex flex-col gap-5 justify-between items-center max-w-[1256px] mt-10 lg:flex-row">
@@ -18,7 +20,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className="text-sm font-medium">Renderforest © 2013 - 2024</div>
+        <div className="text-sm font-medium">{t("copyright")}</div>
 
         <div className="flex items-center justify-center gap-6">
           {footerIcons.map((icon) => (
